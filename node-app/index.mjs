@@ -7,3 +7,7 @@ fs.appendFile("my-file.txt", "Файл сохранен", (err) => {
     console.log("Файл сохранен");
   }
 });
+
+setTimeout(() => {
+  console.log("Конец");
+}, 10000);
