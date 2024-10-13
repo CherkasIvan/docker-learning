@@ -6,3 +6,5 @@ client=MongoClient(MONGO_URL)
 db= client.admin
 dbe_list = db.command("listDatabases")
 pprint(dbe_list)
+
+print("End")
