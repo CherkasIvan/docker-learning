@@ -1,4 +1,4 @@
-version: "3"
+version: "3.4"
 
 services:
   frontend:
@@ -14,13 +14,18 @@ services:
     ports:
       - "5555:5000"
     depends_on:
-      - mysql
+      mysql:
+        condition: service_healthy
   mysql:
     image: mysql
     environment:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: time_db
     restart: always
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
   adminer:
     image: adminer
     restart: always
