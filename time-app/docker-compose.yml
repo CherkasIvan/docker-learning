@@ -1,15 +1,13 @@
-version: "3.4"
+version: "3"
 
 services:
   frontend:
-    build:
-      context: ./frontend
+    build: ./frontend
     restart: always
     ports:
-      - "3333:3000"
+      - "3000:3000"
   api:
-    build:
-      context: ./api
+    build: ./api
     restart: always
     ports:
       - "5555:5000"
