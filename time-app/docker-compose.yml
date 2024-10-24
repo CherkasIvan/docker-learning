@@ -3,11 +3,17 @@ version: "3"
 services:
   frontend:
     build: ./frontend
+    volumes:
+      - /app/node_modules
+      - ./frontend:/app
     restart: always
     ports:
       - "3000:3000"
   api:
     build: ./api
+    volumes:
+      - /app/node_modules
+      - ./api:/app
     restart: always
     ports:
       - "5555:5000"
@@ -20,6 +26,8 @@ services:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: time_db
     restart: always
+    volumes:
+      - mysql_data:/var/lib/mysql
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       timeout: 20s
@@ -29,3 +37,6 @@ services:
     restart: always
     ports:
       - "8887:8080"
+
+volumes:
+  mysql_data:
