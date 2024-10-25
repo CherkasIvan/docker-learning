@@ -1,5 +1,5 @@
 <script setup>
-import Time from './components/Time.vue'
+import Time from "./components/Time.vue";
 </script>
 
 <template>
@@ -7,7 +7,7 @@ import Time from './components/Time.vue'
 </template>
 
 <style>
-@import './assets/base.css';
+@import "./assets/base.css";
 
 #app {
   margin: 100px auto;

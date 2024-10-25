@@ -20,6 +20,12 @@ services:
     depends_on:
       mysql:
         condition: service_healthy
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_USER: root
+      MYSQL_PORT: "3306"
+      MYSQL_PASSWORD: password
+      MYSQL_DB: time_db
   mysql:
     image: mysql
     environment:
